@@ -15,6 +15,11 @@
 
   <ItemGroup>
     <Compile Remove="UnitTest1.cs" />
-    <Compile Remove="Controllers\HelloWorldControllerShould.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MvcMovie\MvcMovie.csproj" />
   </ItemGroup>
 </Project>
