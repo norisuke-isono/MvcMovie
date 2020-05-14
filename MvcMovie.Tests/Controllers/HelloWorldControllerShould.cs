@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.Encodings.Web;
+using Microsoft.AspNetCore.Mvc;
 using MvcMovie.Controllers;
 using Xunit;
 
@@ -15,11 +16,11 @@ namespace MvcMovie.Tests.Controllers
         }
 
         [Fact]
-        public void ReturnStringForIndex()
+        public void ReturnViewResultForIndex()
         {
             var result = _sut.Index();
 
-            Assert.True(result.Equals("This is my default action..."));
+            Assert.IsType<ViewResult>(result);
         }
 
 
