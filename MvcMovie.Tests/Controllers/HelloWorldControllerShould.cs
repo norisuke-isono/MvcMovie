@@ -23,29 +23,13 @@ namespace MvcMovie.Tests.Controllers
             Assert.IsType<ViewResult>(result);
         }
 
-
         [Theory]
-        [InlineData("Taro", 1)]
-        [InlineData("Jiro", 2)]
-        public void ReturnStringForWelcome(string name, int ID)
+        [InlineData("Taro", 3)]
+        public void ReturnViewResultForWelcome(string name, int numTimes)
         {
-            var result = _sut.Welcome(name, ID);
+            var result = _sut.Welcome(name, numTimes);
 
-            var expect = HtmlEncoder.Default.Encode($"Hello {name}, ID: {ID}");
-
-            Assert.True(result.Equals(expect));
-        }
-
-        [Theory]
-        [InlineData("Taro")]
-        [InlineData("Jiro")]
-        public void ReturnStringWithDefaultIDForWelcome(string name)
-        {
-            var result = _sut.Welcome(name);
-
-            var expect = HtmlEncoder.Default.Encode($"Hello {name}, ID: 1");
-
-            Assert.True(result.Equals(expect));
+            Assert.IsType<ViewResult>(result);
         }
 
     }
